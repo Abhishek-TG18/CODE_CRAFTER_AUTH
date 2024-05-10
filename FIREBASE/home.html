@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+       
+        
+        .headder{
+            
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            height: 50px;
+            border: 1px solid black;
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            box-shadow: 0 0 10 0;
+
+            
+        }
+        .logo-sec > img{
+            width: 30px;
+            height: 30px;
+            margin-left: 10px;
+            padding-bottom: 10px;
+            align-self: center;
+
+        }
+        .logo-sec{
+            display: flex;
+            gap:10px;
+        }
+        .sec2 > img{
+
+            width: 100%;
+
+        }
+        .button-sec{
+
+            display: flex;
+            gap:30px;
+            justify-content: center;
+            align-items: center;
+        }
+        .button-1{
+            border: 0;
+        font-size: 15px;
+        background-color: transparent;
+        font-weight: 300;
+        color: #1a73e8;
+        padding-left: 50px;
+             
+        }
+        .button-2{
+
+            padding: 6px 20px;
+            color: #1a73e8;
+            background-color: white;
+            border: 0.5px solid #1f1f1f5e;
+            font-size: 15px;
+           font-weight: 300;
+            
+
+        }
+        .button-3{
+            padding:8px 15px;
+            background-color: rgb(79, 79, 219);
+            color: aliceblue;
+            border:none;
+            border-radius: 7px;
+        }
+
+        .main-sec{
+
+            display: flex;
+            display: flex;
+            justify-content: space-around;
+             gap: 100px;
+             width: 100%;
+        }
+
+    .sec1{
+
+        width: 30%;
+        display: flex;
+        flex-direction: column;
+        gap:10px;
+        justify-content: center;
+        padding: 0px 30px;
+    }
+
+    .sec1 >h2{
+
+        font-size: 70px;
+        margin-bottom: 0;
+    }
+     .sec2{
+
+        width:60%;
+     }
+     .button-2:hover{
+        background-color: rgb(79, 79, 255);
+        color: #fff;
+        border-radius: 5px;
+     }
+
+    </style>
+</head>
+<body>
+     <div class="container">
+        
+        <div class="headder">
+        <div class="logo-sec">
+            <img src="gmail_logo.jpg" alt="logo">
+            <p><b>Gmail</b></p>
+        </div>
+        <div class="button-sec">
+            <button class="button-1">For Work</button>
+            <button type="submit" style="cursor: pointer;"         class="button-2">Sign Out</button>
+            <button class="button-3">Creat an account</button>
+
+        </div>
+        </div>
+        
+        
+            <br>
+        <div class="main-sec">
+            <div class="sec1">
+                <h2>Secure,smart,and easy to use email</h2>
+                <p>  Get more done with Gmail. Now integrated with  Google Chat, Google
+                    Meet, and more, all in one place.</p>
+                    <section class="home-buttons">
+                        <button class="button-3">Create an account</button>
+                        <button class="button-1">For Work</button>
+                      </section>
+            </div>
+
+            <div class="sec2">
+                <img src="gmail.jpg " alt="gmail">
+            </div>
+        </div>
+
+
+
+     </div>
+     <script>
+        let Usercreds=JSON.parse(sessionStorage.getItem("user-creds"));
+        let UserInfo=JSON.parse(sessionStorage.getItem("user-info"));
+
+        let btn=document.querySelector(".button-2");
+
+        let signOut=()=>{
+            sessionStorage.removeItem("user-creds");
+            sessionStorage.removeItem("user-info");
+            window.location.href='home.html'
+        }
+        let checkCred=()=>{
+        if(!sessionStorage.getItem("usercreds"))
+        window.location.href = "home.html"
+    else{
+        //use any tag and print the credentials and info to the page
+        //h1.innerText=`user with email "${userCreds.email}" logged in `;
+        //h2.innerText = ` username ${userInfo.userName};
+    }
+        }
+
+        window.addEventListener("loadeddata",checkCred);
+        btn.addEventListener("click",signOut);
+
+        
+              </script>
+</body>
+</html>
